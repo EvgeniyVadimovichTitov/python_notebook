@@ -1,6 +1,4 @@
-from mapper import *
 from abc import ABC, abstractmethod
-
 
 class OperationABC(ABC):
     """This abstract class defines an intarface working with database"""
@@ -10,9 +8,9 @@ class OperationABC(ABC):
         self._file = file_name
 
     @abstractmethod
-    def readAllLines() -> list:
+    def readAllLines(self) -> list:
         pass
 
     @abstractmethod
-    def saveAllLines(lines: list)->None:
+    def saveAllLines(self, lines: list)->None:
         pass

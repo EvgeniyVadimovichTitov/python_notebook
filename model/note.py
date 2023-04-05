@@ -11,12 +11,12 @@ class BaseNote():
 
     # getter function
     @property
-    def get_name(self) -> str:
+    def getHead(self) -> str:
         return self.__head
 
     # getter function
     @property
-    def get_body(self) -> str:
+    def getBody(self) -> str:
         return self.__body
 
 
