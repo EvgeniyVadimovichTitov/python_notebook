@@ -1,3 +1,9 @@
-from controller import ll
+from controller.controller import Controller
+from model.db_operation import Operation
+from model.repository import Repository
+from view.view import View
 
-print(ll[1])
+
+if __name__ == "__main__":
+    v = View(Controller(Repository(Operation("db.csv"))))
+    v.ButtonClickRun()

@@ -1,6 +1,3 @@
-from accessify import private
-
-
 class BaseNote():
 
     """this class create for creating new note"""
@@ -11,12 +8,12 @@ class BaseNote():
 
     # getter function
     @property
-    def getHead(self) -> str:
+    def head(self) -> str:
         return self.__head
 
     # getter function
     @property
-    def getBody(self) -> str:
+    def body(self) -> str:
         return self.__body
 
 
@@ -31,38 +28,38 @@ class Note():
 
     # getter and setter functions for id
     @property
-    def getId(self) -> str:
+    def id(self) -> str:
         return self.__id
 
-    @getId.setter
-    def setId(self, id: str) -> None:
+    @id.setter
+    def id(self, id: str) -> None:
         self.__id = id
 
     # getter and setter functions for data
     @property
-    def getData(self) -> str:
+    def data(self) -> str:
         return self.__data
 
-    @getData.setter
-    def setData(self, data: str) -> None:
+    @data.setter
+    def data(self, data: str) -> None:
         self.__data = data
 
     # getter and setter functions for head
     @property
-    def getHead(self) -> str:
+    def head(self) -> str:
         return self.__head
 
-    @getId.setter
-    def setHead(self, head: str) -> None:
+    @head.setter
+    def head(self, head: str) -> None:
         self.__head = head
 
     # getter and setter functions for body
     @property
-    def getBody(self) -> str:
+    def body(self) -> str:
         return self.__body
 
-    @getId.setter
-    def setBody(self, body: str) -> None:
+    @body.setter
+    def body(self, body: str) -> None:
         self.__body = body
 
     def __str__(self) -> str:

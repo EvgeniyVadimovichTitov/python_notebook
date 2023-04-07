@@ -1,5 +1,7 @@
-from abc_db_operation import OperationABC
 from pathlib import Path
+
+from model.abc_db_operation import OperationABC
+
 
 
 class Operation(OperationABC):

@@ -1,7 +1,9 @@
-from abc_repository import *
-from abc_db_operation import OperationABC
-from mapper import *
-import datetime
+from datetime import datetime
+
+from model.abc_db_operation import OperationABC
+from model.abc_repository import RepositoryABC
+from model.mapper import mapString, mapNote
+from model.note import Note, BaseNote
 
 
 class Repository(RepositoryABC):
@@ -15,8 +17,10 @@ class Repository(RepositoryABC):
 
     def getAllNotes(self) -> list[Note]:
         lines = self.__op.readAllLines()
-        notes = [mapString(line) for line in lines]
-        return notes
+        if len(lines)>0:
+            notes = [mapString(line) for line in lines]
+            return notes
+        return []
 
     def saveListNotes(self, notes: list[Note]) -> None:
         buff_notes = [mapNote(note) for note in notes]
@@ -24,14 +28,14 @@ class Repository(RepositoryABC):
 
     def createNewNote(self, note: BaseNote) -> None:
         notes = self.getAllNotes()
-        data = datetime.datetime.now().strftime("%d.%m.%Y/%H:%M:%S")
+        data = datetime.now().strftime("%d.%m.%Y/%H:%M:%S")
         id_max = 0
         if len(notes) != 0:
             for el in notes:
-                id = int(el.getId)
+                id = int(el.id)
                 if (id_max < id):
                     id_max = id
         id_max = str(id_max+1)
-        new_note = Note(id_max, data, note.getHead, note.getBody)
+        new_note = Note(id_max, data, note.head, note.body)
         notes.append(new_note)
         self.saveListNotes(notes)

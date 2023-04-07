@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from note import*
 
+from model.note import BaseNote,Note
 
 class RepositoryABC(ABC):
     """This abc class create interface for using in process strings to Note, 
